@@ -1,0 +1,174 @@
+/* About.css - Final Update with Better Hover */
+
+/* ১. মেইন সেকশন এবং লেআউট */
+.about-section {
+  padding: 100px 20px;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* ২. বড় মেইন বক্স */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  color: #00bcd4;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* ৩. ২-কলাম গ্রিড (Rectangle Boxes) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* ৪. ছোট আয়তাকার সার্ভিস বক্স */
+.service-card.rectangle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* হোভার করলে পুরো কার্ডের স্টাইল */
+.service-card:hover {
+  background: rgba(0, 188, 212, 0.05); /* হালকা ব্যাকগ্রাউন্ড টিন্ট */
+  border-color: rgba(0, 188, 212, 0.4);
+  transform: translateY(-5px); /* সামান্য উপরে উঠবে */
+}
+
+/* ৫. আইকন বক্স ডিজাইন (স্থির ব্যাকগ্রাউন্ড) */
+.styled-icon-box {
+  position: relative;
+  min-width: 70px;
+  height: 70px;
+  background: rgba(0, 188, 212, 0.12); /* হোভার করলেও এই কালারটি পরিবর্তন হবে না */
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 188, 212, 0.2);
+  transition: all 0.4s ease;
+}
+
+.actual-icon {
+  font-size: 32px;
+  color: #00bcd4; /* সবসময় সায়ান কালার থাকবে */
+  filter: drop-shadow(0 0 5px rgba(0, 188, 212, 0.3));
+  transition: all 0.4s ease;
+  margin-top: 6px;
+}
+
+/* হোভার করার সময় আইকনের পরিবর্তন (ব্যাকগ্রাউন্ড ফিক্সড রেখে) */
+.service-card:hover .actual-icon {
+  transform: scale(1.1); /* আইকন একটু বড় হবে */
+  filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.8)); /* উজ্জ্বলতা বাড়বে */
+  color: #00f2ff; /* আরও উজ্জ্বল সায়ান হবে */
+}
+
+.service-card:hover .styled-icon-box {
+  border-color: rgba(0, 188, 212, 0.6); /* শুধু বর্ডার গ্লো করবে */
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.15);
+}
+
+/* ৬. টেক্সট স্টাইল */
+.service-info h3 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.service-card:hover h3 {
+  color: #00bcd4; /* শিরোনামটিও সায়ান হবে হোভার করলে */
+}
+
+.service-info p {
+  color: #b0b0b0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.highlight {
+  color: #00bcd4;
+  font-weight: 600;
+}
+
+/* মোবাইল রেসপন্সিভ ডিজাইন (শুধুমাত্র ফোনের জন্য) */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* ১ টি কলাম */
+    gap: 15px;
+
+    -webkit-tap-highlight-color: transparent; 
+    outline: none;
+  }
+
+  .service-card.rectangle {
+    position: relative; /* আইকনকে পজিশন করার জন্য */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+    min-height: 140px; /* কার্ডের মিনিমাম হাইট */
+  }
+
+  /* আইকন বক্সকে উপরে ডানদিকে ছোট করে রাখা */
+  .styled-icon-box {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    min-width: 45px; /* আইকন বক্স ছোট করা হলো */
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .actual-icon {
+    font-size: 16px; /* আইকন আরও ছোট করা হলো */
+    margin-top: 5px;
+  }
+
+  .service-info {
+    width: 100%;
+  }
+
+  .service-info h3 {
+    font-size: 18px;
+    /* টাইটেল যাতে আইকনের সাথে মিশে না যায় সেজন্য ডানপাশে গ্যাপ */
+    padding-right: 55px; 
+    margin-top: 5px;
+    line-height: 1.2;
+  }
+
+  .service-info p {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #a0a0a0;
+  }
+}

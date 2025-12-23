@@ -1,0 +1,228 @@
+/* Portfolio.css - Final Optimized for Dim Effect */
+
+.portfolio-page {
+  padding: 100px 20px 40px;
+  min-height: 100vh;
+  background-color: #050505;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio-container {
+  width: 100%;
+  max-width: 1350px;
+  padding: 40px;
+  border-radius: 40px;
+  background: rgba(15, 15, 15, 0.7) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+.section-title {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ফিল্টার বার স্টাইল */
+.filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 60px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.filter-item {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+/* ল্যাপটপে এক্টিভ স্টাইল */
+.filter-item.active {
+  background: #00bcd4;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+}
+
+.cat-icon {
+  display: none; 
+}
+
+/* প্রজেক্ট কার্ড গ্রিড */
+.projects-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.project-card-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card-box:hover {
+  border-color: #00bcd4;
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.project-header h3 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.p-date {
+  color: #00bcd4;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.p-points {
+  list-style: disc;
+  margin-left: 20px;
+  color: #bbb;
+  font-size: 15px;
+  flex-grow: 1;
+}
+
+.p-points li {
+  margin-bottom: 10px;
+}
+
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.pill {
+  background: rgba(0, 188, 212, 0.08);
+  color: #00bcd4;
+  border: 1px solid rgba(0, 188, 212, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.p-action-btns {
+  display: flex;
+  gap: 15px;
+}
+
+/* GitHub এবং View বাটন দুটোকেই আউটলাইন স্টাইল করা হলো */
+.btn-outline, .btn-filled {
+  flex: 1;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover, .btn-filled:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00bcd4;
+  color: #00bcd4;
+}
+
+/* --- মোবাইল ভিউ রেসপন্সিভ --- */
+@media (max-width: 768px) {
+  .filter-nav {
+    border-radius: 25px;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .filter-item {
+    flex-direction: column;
+    padding: 8px 5px;
+    min-width: 65px;
+    flex: 1 1 20%;
+    color: #888;
+  }
+
+  /* মোবাইলে এক্টিভ বাটনকে আবছা বা "Dim" স্টাইল করা হলো */
+  .filter-item.active {
+    background: rgba(0, 188, 212, 0.15) !important; /* হালকা সাইয়ান ব্যাকগ্রাউন্ড */
+    color: #00bcd4 !important; /* শুধু আইকন ও টেক্সট উজ্জ্বল থাকবে */
+    border: 1px solid rgba(0, 188, 212, 0.3); /* হালকা বর্ডার */
+    box-shadow: none !important; /* কোনো গ্লো থাকবে না */
+
+    -webkit-tap-highlight-color: transparent; 
+    outline: none;
+    /* background: transparent !important; */
+  }
+
+  .cat-icon {
+    display: block; 
+    font-size: 20px;
+    background-color: transparent;
+    margin-bottom: 4px;
+
+    -webkit-tap-highlight-color: transparent; 
+    outline: none;
+    background: transparent !important;
+  }
+
+  .cat-name {
+    font-size: 10px; 
+  }
+
+  .portfolio-container {
+    padding: 20px 10px; 
+    width: 98%; 
+    border-radius: 20px;
+  }
+
+  .projects-display {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

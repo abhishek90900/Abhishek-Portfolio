@@ -1,0 +1,125 @@
+/* Navbar.css - Final Fixed Version */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+/* স্ক্রল করলে স্টাইল */
+.navbar.scrolled {
+  height: 70px;
+  background: rgba(15, 15, 15, 0.65) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-bottom-left-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+  border-bottom: 2px solid rgba(0, 188, 212, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center; /* সব আইটেমকে মাঝখানে রাখার জন্য */
+}
+
+/* --- ল্যাপটপ/ডেস্কটপ ভিউ --- */
+
+.desktop-menu-trigger {
+  display: block;
+  font-size: 28px;
+  color: #00bcd4;
+  cursor: pointer;
+  transition: 0.3s;
+  order: 1; /* বামদিকের মেনু আইকন ১ নম্বর পজিশনে */
+}
+
+.desktop-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  order: 2; /* মেনু লিঙ্কগুলো ২ নম্বর পজিশনে */
+  margin-left: auto; /* এটি লিঙ্কগুলোকে ডানদিকে ঠেলে দেবে */
+  margin-right: 40px; /* লিঙ্ক এবং সিগনেচারের মধ্যে গ্যাপ */
+}
+
+.logo {
+  display: flex; /* ল্যাপটপে শো করানোর জন্য display: none সরানো হয়েছে */
+  align-items: center;
+  order: 3; /* সিগনেচার ইমেজ একদম ডানদিকে (৩ নম্বর পজিশনে) */
+}
+
+.signature-logo {
+  height: 45px; /* ল্যাপটপের জন্য সাইজ সামান্য বাড়ানো হয়েছে */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* .signature-logo:hover {
+  transform: scale(1.1);
+} */
+
+.desktop-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.desktop-links a:hover {
+  color: #00bcd4;
+}
+
+.mobile-menu-trigger {
+  display: none;
+}
+
+/* --- মোবাইল ভিউ (Responsive) --- */
+
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: space-between; /* মোবাইলে দুই পাশে লোগো ও মেনু থাকবে */
+  }
+
+  .desktop-menu-trigger {
+    display: none;
+  }
+
+  .logo {
+    display: block;
+    order: 1; /* মোবাইলে লোগো বামদিকে থাকবে */
+  }
+
+  .desktop-links {
+    display: none;
+  }
+
+  .mobile-menu-trigger {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    order: 2; /* মোবাইলে মেনু আইকন ডানদিকে থাকবে */
+  }
+  
+  .signature-logo {
+    height: 35px;
+  }
+  
+  .navbar {
+    height: 70px;
+  }
+}

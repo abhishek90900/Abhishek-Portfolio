@@ -1,0 +1,51 @@
+/* App.css */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* ডিফল্ট সেন্টার টেক্সট বন্ধ */
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+}
+/* App.css */
+
+.main-wrapper {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+/* শুধুমাত্র ল্যাপটপে স্ক্রিন শিফট হবে কিন্তু স্ক্রিনের বাইরে যাবে না */
+@media (min-width: 769px) {
+  .App.menu-open .main-wrapper {
+    margin-left: 300px; /* ট্রান্সলেটের বদলে মার্জিন ব্যবহার করা হয়েছে */
+    width: calc(100% - 300px); /* যাতে কন্টেন্ট স্ক্রিনের ভেতরেই থাকে */
+  }
+  
+  /* নববারকেও শিফট করতে চাইলে Navbar.css এ একই লজিক দিতে পারেন */
+  .App.menu-open .navbar {
+    left: 300px;
+    width: calc(100% - 300px);
+  }
+}
+
+/* মোবাইলে স্ক্রিন শিফট হবে না, মেনু ওপরে আসবে */
+@media (max-width: 768px) {
+  .App.menu-open .main-wrapper {
+    transform: none; 
+  }
+}
+/* সেকশনগুলোর জন্য ডিফল্ট স্পেসিং */
+section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 60px; /* নববারের জন্য উপরে গ্যাপ রাখা হয়েছে */
+}

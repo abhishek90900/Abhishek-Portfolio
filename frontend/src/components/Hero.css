@@ -1,0 +1,103 @@
+/* Hero.css */
+
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0a0a0a;
+  position: relative;
+  z-index: 1;
+  padding-top: 0; 
+  margin-top: 0;
+  margin-bottom: -50px;
+}
+
+.hero-content {
+  margin-top: 50px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #7d89f0;
+  display: block;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #cccccc;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.typewriter {
+  color: #00bcd4;
+  font-weight: 700;
+}
+
+.cursor {
+  color: #00bcd4;
+  font-weight: bold;
+  animation: blink 0.8s infinite;
+}
+
+/* গ্লাস বাটন ডিজাইন - আপডেট করা হয়েছে */
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.glass-btn {
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  /* আন্ডারলাইন সরানোর জন্য নিচের দুটি লাইন ব্যবহার করুন */
+  text-decoration: none; 
+  display: inline-block; 
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #00bcd4;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 188, 212, 0.2);
+  color: #ffffff; /* হোভারেও টেক্সট সাদা থাকবে */
+  text-decoration: none; /* নিশ্চিত করতে পুনরায় দেওয়া হলো */
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* মোবাইল ডিভাইসের জন্য স্পেসিং ঠিক করা */
+@media (max-width: 768px) {
+  .hero-btns {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .glass-btn {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}

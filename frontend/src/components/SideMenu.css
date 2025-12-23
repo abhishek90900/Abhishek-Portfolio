@@ -1,0 +1,222 @@
+/* SideMenu.css - Final Comprehensive Update */
+
+/* ১. মেইন র‍্যাপার কন্টেইনার */
+.side-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  visibility: hidden;
+  transition: visibility 0.4s ease-in-out;
+}
+
+.side-menu-wrapper.active {
+  visibility: visible;
+}
+
+/* ২. ব্যাকগ্রাউন্ড ওভারলে */
+.side-menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.side-menu-wrapper.active .side-menu-overlay {
+  opacity: 1;
+}
+
+/* ৩. মেনু কন্টেন্ট বক্স (বেস স্টাইল) */
+.side-menu-content {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  /* গ্লাস-ব্লার ইফেক্ট */
+  background: rgba(15, 15, 15, 0.75) !important; 
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  padding: 40px 20px;
+  overflow-y: auto;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* ৪. ল্যাপটপ ভিউ (বামে থাকবে, ডান পাশ রাউন্ড) */
+@media (min-width: 769px) {
+  .side-menu-content {
+    left: -320px; /* হাইড অবস্থা */
+    right: auto !important;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-right: 1px solid rgba(0, 188, 212, 0.2);
+    border-left: none;
+  }
+  .side-menu-wrapper.active .side-menu-content {
+    left: 0; /* শো অবস্থা */
+  }
+  /* ল্যাপটপে নেভিগেশন লিঙ্ক হাইড */
+  .mobile-only, .side-nav-links {
+    display: none;
+  }
+}
+
+/* ৫. মোবাইল ভিউ (ডানে থাকবে, বাম পাশ রাউন্ড) */
+@media (max-width: 768px) {
+  .side-menu-content {
+    right: -320px; /* হাইড অবস্থা */
+    left: auto !important;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-left: 1px solid rgba(0, 188, 212, 0.2);
+    border-right: none;
+  }
+  .side-menu-wrapper.active .side-menu-content {
+    right: 0; /* শো অবস্থা */
+  }
+}
+
+/* ৬. ক্লোজ বাটন */
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-menu:hover {
+  color: #00bcd4;
+}
+
+/* ৭. প্রোফাইল সেকশন */
+.side-profile {
+  text-align: center;
+}
+
+.img-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #00bcd4;
+  margin: 0 auto 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.side-profile h3 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.side-profile p {
+  color: #b0b0b0;
+  font-size: 13px;
+}
+
+/* ৮. কন্টাক্ট সেকশন ও ইমেইল ফিক্স */
+.side-contact h4 {
+  color: #00bcd4;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  margin-bottom: 15px;
+  text-decoration: none; /* লিঙ্ক আন্ডারলাইন রিমুভ */
+  transition: 0.3s;
+  width: 100%;
+  overflow: hidden;
+}
+
+.contact-item:hover {
+  color: #00bcd4;
+}
+
+.contact-icon {
+  color: #00bcd4;
+  font-size: 20px;
+  min-width: 20px;
+}
+
+/* ইমেইল ডট ডট ইফেক্ট (Ellipsis) */
+.email-text {
+  font-size: 14px;
+  white-space: nowrap; 
+  overflow: hidden;    
+  text-overflow: ellipsis; 
+  max-width: 210px; /* বক্সের সাইজ অনুযায়ী ফিক্সড */
+  display: block;
+}
+
+/* ৯. সোশ্যাল লিঙ্ক */
+.side-social h4 {
+  color: #00bcd4;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #00bcd4;
+  transform: translateY(-3px);
+}
+
+/* ১০. মোবাইল নেভিগেশন লিঙ্ক (শুধুমাত্র মোবাইলে) */
+.side-nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.side-nav-links li {
+  margin-bottom: 15px;
+}
+
+.side-nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.side-nav-links a:hover {
+  color: #00bcd4;
+}
