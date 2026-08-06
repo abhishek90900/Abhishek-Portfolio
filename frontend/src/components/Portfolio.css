@@ -1,4 +1,4 @@
-/* Portfolio.css - Final Optimized for Dim Effect */
+/* Portfolio.css - Final Optimized for Dim Effect & Fixed Mobile Spacing */
 
 .portfolio-page {
   padding: 100px 20px 40px;
@@ -149,7 +149,6 @@
   gap: 15px;
 }
 
-/* GitHub এবং View বাটন দুটোকেই আউটলাইন স্টাইল করা হলো */
 .btn-outline, .btn-filled {
   flex: 1;
   text-decoration: none;
@@ -198,7 +197,6 @@
   flex-shrink: 0;
 }
 
-/* Glassmorphic Navigation Arrows */
 .slide-arrow {
   position: absolute;
   top: 50%;
@@ -235,7 +233,6 @@
 .slide-arrow.left { left: 12px; }
 .slide-arrow.right { right: 12px; }
 
-/* Modern Pill-Shaped Glass Indicator Container (ছবি অনুযায়ী) */
 .slider-dots {
   position: absolute;
   bottom: 12px;
@@ -246,7 +243,7 @@
   gap: 8px;
   background: rgba(10, 15, 25, 0.65);
   padding: 6px 14px;
-  border-radius: 30px; /* Pill Shape Container */
+  border-radius: 30px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -267,20 +264,35 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
-/* Active Glowing Dot Effect */
 .dot.active-dot {
   background: #00bcd4;
-  width: 22px; /* Active অবস্থায় পিল শেপ ধারণ করবে */
+  width: 22px;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0, 188, 212, 0.9);
 }
 
-/* --- মোবাইল ভিউ রেসপন্সিভ --- */
+/* --- মোবাইল ভিউ রেসপন্সিভ - স্পেসিং ফিক্সড --- */
 @media (max-width: 768px) {
+  .portfolio-page {
+    padding: 80px 10px 30px; /* পেজের দুপাশের বাইরের স্পেসিং কমানো হলো */
+  }
+
+  .portfolio-container {
+    padding: 25px 12px !important; /* গ্লাস কার্ডের ভেতরের স্পেস কমানো হলো */
+    width: 98% !important; /* স্ক্রিনের দুই পাশে সর্বোচ্চ জায়গা ব্যবহারের জন্য */
+    border-radius: 20px;
+  }
+
+  .project-card-box {
+    padding: 20px 15px !important; /* কার্ডের ভেতরের প্যাডিং কম করা হলো */
+    border-radius: 20px;
+  }
+
   .filter-nav {
     border-radius: 25px;
     padding: 10px;
     gap: 8px;
+    margin-bottom: 35px;
   }
 
   .filter-item {
@@ -291,24 +303,19 @@
     color: #888;
   }
 
-  /* মোবাইলে এক্টিভ বাটনকে আবছা বা "Dim" স্টাইল করা হলো */
   .filter-item.active {
-    background: rgba(0, 188, 212, 0.15) !important; /* হালকা সাইয়ান ব্যাকগ্রাউন্ড */
-    color: #00bcd4 !important; /* শুধু আইকন ও টেক্সট উজ্জ্বল থাকবে */
-    border: 1px solid rgba(0, 188, 212, 0.3); /* হালকা বর্ডার */
-    box-shadow: none !important; /* কোনো গ্লো থাকবে না */
-
+    background: rgba(0, 188, 212, 0.15) !important;
+    color: #00bcd4 !important;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    box-shadow: none !important;
     -webkit-tap-highlight-color: transparent; 
     outline: none;
-    /* background: transparent !important; */
   }
 
   .cat-icon {
     display: block; 
     font-size: 20px;
-    background-color: transparent;
     margin-bottom: 4px;
-
     -webkit-tap-highlight-color: transparent; 
     outline: none;
     background: transparent !important;
@@ -318,14 +325,13 @@
     font-size: 10px; 
   }
 
-  .portfolio-container {
-    padding: 20px 10px; 
-    width: 98%; 
-    border-radius: 20px;
-  }
-
   .projects-display {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .slider-wrapper {
+    height: 180px; /* মোবাইলে রেস্পেক্ট রেশিও ঠিক রাখার জন্য ইমেজ স্লাইডারের উচ্চতা এডজাস্ট করা হলো */
+    margin: 12px 0;
   }
 }

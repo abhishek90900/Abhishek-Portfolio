@@ -1,4 +1,4 @@
-/* Resume.css - Updated & Final Optimized Version */
+/* Resume.css - Updated & Final Optimized Version with Mobile Fixes */
 
 .resume-page {
   padding: 100px 20px;
@@ -45,16 +45,14 @@
   position: relative;
   padding-left: 30px;
   border-left: 2px solid rgba(0, 188, 212, 0.1); 
-  padding-bottom: 30px; /* আইটেমগুলোর মাঝখানের মার্জিন অপ্টিমাইজড */
+  padding-bottom: 30px;
 }
 
-/* শেষ আইটেমের নিচে বর্ডার এবং প্যাডিং জিরো হবে যেন এক্সট্রা স্পেস না তৈরি হয় */
 .timeline-item:last-child {
   border-left: 2px solid transparent;
   padding-bottom: 0; 
 }
 
-/* শেষ ডটের ওপর পর্যন্ত সুক্ষ্ম কানেক্টর */
 .timeline-item:last-child::before {
   content: '';
   position: absolute;
@@ -64,7 +62,6 @@
   border-left: 2px solid rgba(0, 188, 212, 0.1);
 }
 
-/* বুলেট পয়েন্ট (Dot) */
 .timeline-dot {
   position: absolute;
   left: -11px; 
@@ -133,12 +130,10 @@
   margin-bottom: 8px;
 }
 
-/* প্রজেক্ট সেকশনের ফাঁকা জায়গা কমানোর স্পেশাল ফিক্স */
 .projects-section-fix {
   margin-bottom: 40px !important;
 }
 
-/* Skills Style */
 .skills-container {
   display: flex;
   flex-direction: column;
@@ -188,7 +183,6 @@
   color: #fff;
 }
 
-/* Tech Tags in Projects */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -205,7 +199,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Certification List */
 .cert-list {
   list-style: none;
   padding: 0;
@@ -228,7 +221,6 @@
   font-weight: bold;
 }
 
-/* Additional Info Box & Badges */
 .additional-info {
   background: rgba(0, 188, 212, 0.05);
   padding: 20px;
@@ -277,28 +269,45 @@
   font-weight: 500;
 }
 
-/* Mobile Responsive */
+/* --- মোবাইল ভিউ রেসপন্সিভ - স্পেসিং ফিক্সড --- */
 @media (max-width: 768px) {
+  .resume-page {
+    padding: 80px 10px; /* পেজের দুপাশের আউটার স্পেসিং কম করা হলো */
+  }
+
   .content-header {
     flex-direction: column;
+    gap: 4px;
   }
   
   .resume-container {
-    padding: 25px;
-    width: 100%;
+    padding: 25px 12px !important; /* কন্টেইনারের ভেতরের প্যাডিং কমিয়ে স্ক্রিন অনুযায়ী অ্যাডজাস্ট করা হলো */
+    width: 98% !important; /* ফুল ইউটিলাইজেশনের জন্য উইডথ বাড়ানো হলো */
   }
 
   .timeline-item {
-    padding-left: 20px;
+    padding-left: 22px; /* লেফট লাইন ও কন্টেন্টের স্পেসিং ব্যালেন্সড */
+    padding-bottom: 25px;
+  }
+
+  .timeline-content {
+    padding: 18px 15px !important; /* বক্সের ভেতরের অতিরিক্ত স্পেস কম করা হলো */
+    border-radius: 15px;
   }
 
   .timeline-dot {
     left: -9px;
     width: 16px;
     height: 16px;
+    border-width: 2px;
   }
 
   .timeline-item:last-child::before {
     left: -1px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr; /* ছোট স্ক্রিনে ওয়ান কলাম গ্রিড */
+    gap: 20px;
   }
 }
