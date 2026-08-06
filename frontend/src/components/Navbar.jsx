@@ -39,7 +39,7 @@ const Navbar = ({ toggleMenu }) => {
         {/* ল্যাপটপে মেনু লিঙ্ক */}
         <ul className="nav-menu desktop-links">
           <li><Link to="/">About</Link></li>
-          <li><Link to="/portfolio">Portfolio</Link></li>
+          <li><Link to="/portfolio">Projects</Link></li>
           <li><Link to="/resume">Resume</Link></li>
         </ul>
 

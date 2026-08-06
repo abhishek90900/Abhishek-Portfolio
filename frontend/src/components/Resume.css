@@ -1,4 +1,4 @@
-/* Resume.css - Updated Version */
+/* Resume.css - Updated & Final Optimized Version */
 
 .resume-page {
   padding: 100px 20px;
@@ -8,17 +8,16 @@
   justify-content: center;
 }
 
-/* .resume-container {
-
+.resume-container {
   width: 92%; 
   max-width: 1400px; 
   margin: 0 auto;
   padding: 50px;
-  border-radius: 40px;
+  border-radius: 20px;
   background: rgba(15, 15, 15, 0.7) !important;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 188, 212, 0.2);
-} */
+}
 
 .resume-section {
   margin-bottom: 50px;
@@ -33,22 +32,42 @@
   margin-bottom: 30px;
 }
 
-/* Timeline Logic */
+/* Timeline Logic - Line and Height Bug Fixed */
 .timeline {
   position: relative;
-  padding-left: 30px;
-  border-left: 2px solid rgba(0, 188, 212, 0.1); /* হালকা লাইন */
+  padding-left: 0; 
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 40px;
+  padding-left: 30px;
+  border-left: 2px solid rgba(0, 188, 212, 0.1); 
+  padding-bottom: 30px; /* আইটেমগুলোর মাঝখানের মার্জিন অপ্টিমাইজড */
+}
+
+/* শেষ আইটেমের নিচে বর্ডার এবং প্যাডিং জিরো হবে যেন এক্সট্রা স্পেস না তৈরি হয় */
+.timeline-item:last-child {
+  border-left: 2px solid transparent;
+  padding-bottom: 0; 
+}
+
+/* শেষ ডটের ওপর পর্যন্ত সুক্ষ্ম কানেক্টর */
+.timeline-item:last-child::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  height: 5px;
+  border-left: 2px solid rgba(0, 188, 212, 0.1);
 }
 
 /* বুলেট পয়েন্ট (Dot) */
 .timeline-dot {
   position: absolute;
-  left: -41px;
+  left: -11px; 
   top: 5px;
   width: 20px;
   height: 20px;
@@ -114,6 +133,11 @@
   margin-bottom: 8px;
 }
 
+/* প্রজেক্ট সেকশনের ফাঁকা জায়গা কমানোর স্পেশাল ফিক্স */
+.projects-section-fix {
+  margin-bottom: 40px !important;
+}
+
 /* Skills Style */
 .skills-container {
   display: flex;
@@ -129,7 +153,6 @@
   border: 1px solid rgba(0, 188, 212, 0.1);
 }
 
-/* Skills Grid */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -140,7 +163,7 @@
   color: #fff;
   font-size: 17px;
   margin-bottom: 15px;
-  border-left: 3px solid #00bcd4; /* সাব-আইকন ছাড়াই প্রফেশনাল লুক */
+  border-left: 3px solid #00bcd4;
   padding-left: 12px;
 }
 
@@ -205,7 +228,7 @@
   font-weight: bold;
 }
 
-/* Additional Info Box */
+/* Additional Info Box & Badges */
 .additional-info {
   background: rgba(0, 188, 212, 0.05);
   padding: 20px;
@@ -215,28 +238,7 @@
   text-align: center;
   border: 1px dashed #00bcd4;
 }
-/* Resume.css - Final Optimized Version */
 
-.resume-page {
-  padding: 100px 20px;
-  min-height: 100vh;
-  background-color: #050505;
-  display: flex;
-  justify-content: center;
-}
-
-.resume-container {
-  width: 92%; 
-  max-width: 1400px; 
-  margin: 0 auto;
-  padding: 50px;
-  border-radius: 20px;
-  background: rgba(15, 15, 15, 0.7) !important;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 188, 212, 0.2);
-}
-
-/* Additional Info Modern Style */
 .info-badges-container {
   display: flex;
   flex-wrap: wrap;
@@ -275,7 +277,6 @@
   font-weight: 500;
 }
 
-
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .content-header {
@@ -287,13 +288,17 @@
     width: 100%;
   }
 
-  .timeline {
+  .timeline-item {
     padding-left: 20px;
   }
 
   .timeline-dot {
-    left: -31px;
+    left: -9px;
     width: 16px;
     height: 16px;
+  }
+
+  .timeline-item:last-child::before {
+    left: -1px;
   }
 }

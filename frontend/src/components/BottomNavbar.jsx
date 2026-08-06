@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // আধুনিক Remix Icons এর সেট
-import { 
-  RiAccountCircleLine, RiAccountCircleFill, 
+import {
+  RiAccountCircleLine, RiAccountCircleFill,
   RiLayoutMasonryLine, RiLayoutMasonryFill, // একদম নতুন ম্যাসনরি গ্রিড স্টাইল
-  RiArticleLine, RiArticleFill 
+  RiArticleLine, RiArticleFill
 } from 'react-icons/ri';
 import './BottomNavbar.css';
 
@@ -12,23 +12,23 @@ const BottomNavbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { 
-      path: '/', 
-      label: 'About', 
-      outline: <RiAccountCircleLine />, 
-      fill: <RiAccountCircleFill /> 
+    {
+      path: '/',
+      label: 'About',
+      outline: <RiAccountCircleLine />,
+      fill: <RiAccountCircleFill />
     },
-    { 
-      path: '/portfolio', 
-      label: 'Portfolio', 
+    {
+      path: '/portfolio',
+      label: 'Projects',
       outline: <RiLayoutMasonryLine />, // আধুনিক আনইভেন গ্রিড স্টাইল
       fill: <RiLayoutMasonryFill />      // ক্লিক করলে ভর্তি হয়ে যাবে
     },
-    { 
-      path: '/resume', 
-      label: 'Resume', 
+    {
+      path: '/resume',
+      label: 'Resume',
       outline: <RiArticleLine />, // সাধারণ পেপার আইকনের চেয়ে মডার্ন
-      fill: <RiArticleFill /> 
+      fill: <RiArticleFill />
     },
   ];
 
