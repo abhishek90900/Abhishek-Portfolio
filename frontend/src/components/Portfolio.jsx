@@ -180,7 +180,7 @@ const projectsData = [
 {
   id: 5,
   title: "Enterprise RAG Platform",
-  video: "/videos/rag-demo.mp4",
+  video: "/videos/VID-20260807-WA0015.mp4",
   date: "2026",
   details: [
     "Production-grade Retrieval-Augmented Generation (RAG) engine built for high-precision, sub-second document intelligence.",
