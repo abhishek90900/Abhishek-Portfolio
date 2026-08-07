@@ -176,6 +176,35 @@ const projectsData = [
   ],
   github: "https://github.com/abhishek90900/DR.-appointment",
   demo: "https://online-appointment-03fp.onrender.com"
+},
+{
+  id: 5,
+  title: "Enterprise RAG Platform",
+  video: "/videos/rag-demo.mp4",
+  date: "2026",
+  details: [
+    "Production-grade Retrieval-Augmented Generation (RAG) engine built for high-precision, sub-second document intelligence.",
+    "Combines dense vector embeddings with Qdrant BM25 sparse search and BAAI cross-encoder neural reranking to eliminate hallucinations.",
+    "Interactive Streamlit web dashboard supporting multi-format document ingestion (PDF, TXT, DOCX), granular source citations, and conversational memory."
+  ],
+  tech: [
+    "Python",
+    "LlamaIndex",
+    "Qdrant Vector DB",
+    "Groq LPUs",
+    "HuggingFace Transformers",
+    "Streamlit",
+    "Pydantic",
+    "REST API",
+    "Git",
+    "GitHub"
+  ],
+  category: [
+    "AI / ML Project",
+    "Full Stack Project"
+  ],
+  github: "https://github.com/abhishek90900/ENTERPRICE-RAG-PLATFORM",
+  demo: ""
 }
 ];
 
@@ -293,9 +322,23 @@ const Portfolio = () => {
                 <span className="p-date">{project.date}</span>
               </div>
 
-              {/* ২. প্রজেক্টের ইমেজ স্লাইডার সেকশন */}
-              {project.images && project.images.length > 0 && (
-                <ProjectImageSlider images={project.images} title={project.title} />
+              {/* ২. প্রজেক্টের মিডিয়া সেকশন (ভিডিও থাকলে ভিডিও, না থাকলে ইমেজ স্লাইডার) */}
+              {project.video ? (
+                <div className="video-container" style={{ width: "100%", borderRadius: "8px", overflow: "hidden", marginBottom: "12px" }}>
+                  <video 
+                    src={project.video} 
+                    controls 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    style={{ width: "100%", height: "auto", display: "block" }} 
+                  />
+                </div>
+              ) : (
+                project.images && project.images.length > 0 && (
+                  <ProjectImageSlider images={project.images} title={project.title} />
+                )
               )}
 
               {/* ৩. প্রজেক্টের পয়েন্টসমূহ */}
@@ -317,9 +360,17 @@ const Portfolio = () => {
                 <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline">
                   <FiGithub /> GitHub
                 </a>
-                <a href={project.demo} target="_blank" rel="noreferrer" className="btn-filled">
-                  <FiExternalLink /> View
-                </a>
+                
+                {/* স্মার্ট ডেমো বাটন: লিংক থাকলে ডাইরেক্ট বাটন, না থাকলে Live Demo Soon */}
+                {project.demo ? (
+                  <a href={project.demo} target="_blank" rel="noreferrer" className="btn-filled">
+                    <FiExternalLink /> View
+                  </a>
+                ) : (
+                  <span className="btn-filled disabled" style={{ opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" }}>
+                    <FiExternalLink /> Live Demo Soon
+                  </span>
+                )}
               </div>
             </div>
           ))}
